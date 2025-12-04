@@ -1,8 +1,9 @@
-from os import PathLike
 from pathlib import Path
 
+from aoc25.util import input_file
 
-def solve(input_file: PathLike):
+
+def solve(input_file: Path):
     current = 50
     total_zero = 0
     with open(input_file) as f:
@@ -21,7 +22,7 @@ def solve(input_file: PathLike):
     return total_zero
 
 
-def solve2(input_file: PathLike):
+def solve2(input_file: Path):
     current = 50
     total_zero = 0
     with open(input_file) as f:
@@ -52,5 +53,5 @@ def solve2(input_file: PathLike):
 
 
 if __name__ =="__main__":
-    print(solve(Path(__file__).parent.parent / "input" / "p01.txt"))
-    print(solve2(Path(__file__).parent.parent / "input" / "p01.txt"))
+    print(solve(input_file("p01.txt")))
+    print(solve2(input_file("p01.txt")))
