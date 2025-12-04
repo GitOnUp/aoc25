@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from aoc25.util import input_file
+import aoc25.util as util
 
 
 def solve(input_file: Path):
@@ -53,5 +53,5 @@ def solve2(input_file: Path):
 
 
 if __name__ =="__main__":
-    print(solve(input_file("p01.txt")))
-    print(solve2(input_file("p01.txt")))
+    print(solve(util.input_path("p01.txt")))
+    print(solve2(util.input_path("p01.txt")))
