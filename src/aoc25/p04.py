@@ -3,10 +3,7 @@ from pathlib import Path
 import aoc25.util as util
 
 
-def solve(input_file: Path) -> int:
-    with open(input_file, "r") as f:
-        grid = [line.strip() for line in f.readlines()]
-
+def removals(grid: list[list[str]]) -> list[(int, int)]:
     height = len(grid)
     width = len(grid[0])
 
@@ -17,7 +14,7 @@ def solve(input_file: Path) -> int:
             return 1
         return 0
 
-    accessible = 0
+    accessible = []
     for y in range(height):
         for x in range(width):
             if grid[y][x] != "@":
@@ -29,9 +26,26 @@ def solve(input_file: Path) -> int:
                         continue
                     neighbors += neighboring_paper(x + dx, y + dy)
             if neighbors < 4:
-                accessible += 1
+                accessible.append((x, y))
     return accessible
 
 
+def remove_all(input_file: Path):
+    with open(input_file, "r") as f:
+        grid = [[c for c in line.strip()] for line in f.readlines()]
+
+    removed = removals(grid)
+    first_iteration = len(removed)
+    all_removals = 0
+
+    while removed:
+        all_removals += len(removed)
+        for x, y in removed:
+            grid[y][x] = 'x'
+        removed = removals(grid)
+
+    return first_iteration, all_removals
+
+
 if __name__ == "__main__":
-    print(solve(util.input_path("p04.txt")))
+    print(remove_all(util.input_path("p04.txt")))
