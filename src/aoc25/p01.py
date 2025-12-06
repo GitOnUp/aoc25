@@ -3,7 +3,7 @@ from pathlib import Path
 import aoc25.util as util
 
 
-def solve(input_file: Path):
+def solve1(input_file: Path):
     current = 50
     total_zero = 0
     with open(input_file) as f:
@@ -52,6 +52,9 @@ def solve2(input_file: Path):
     return total_zero
 
 
-if __name__ =="__main__":
-    print(solve(util.input_path("p01.txt")))
-    print(solve2(util.input_path("p01.txt")))
+def solve(input_file: Path):
+    return solve1(input_file), solve2(input_file)
+
+
+if __name__ == "__main__":
+    print(solve(util.input_path(__file__, example=False)))

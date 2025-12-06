@@ -30,7 +30,7 @@ def removals(grid: list[list[str]]) -> list[(int, int)]:
     return accessible
 
 
-def remove_all(input_file: Path):
+def solve(input_file: Path):
     with open(input_file, "r") as f:
         grid = [[c for c in line.strip()] for line in f.readlines()]
 
@@ -48,4 +48,4 @@ def remove_all(input_file: Path):
 
 
 if __name__ == "__main__":
-    print(remove_all(util.input_path("p04.txt")))
+    print(solve(util.input_path(__file__, example=False)))

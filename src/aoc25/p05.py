@@ -59,4 +59,4 @@ def merge_range(ranges: list[tuple[int, int]], new_range: tuple[int, int]) -> li
 
 
 if __name__ == "__main__":
-    print(solve(util.input_path("p05.txt")))
+    print(solve(util.input_path(__file__, example=False)))

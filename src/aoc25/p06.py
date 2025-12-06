@@ -63,6 +63,9 @@ def solve_problem(lines: list[str], bounds: tuple[int, int]) -> int:
     return val
 
 
+def solve(input_file: Path):
+    return solve1(input_file), solve2(input_file)
+
+
 if __name__ == "__main__":
-    print(solve1(util.input_path("p06.txt")))
-    print(solve2(util.input_path("p06.txt")))
+    print(solve(util.input_path(__file__, example=False)))

@@ -42,4 +42,4 @@ def solve(input_file: Path):
 
 
 if __name__ == "__main__":
-    print(solve(util.input_path("p03.txt")))
+    print(solve(util.input_path(__file__, example=False)))
